@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: disco-service-run
+  namespace: user9
+spec:
+  pipelineRef:
+    name: disco-service
+  params:
+  - name: url
+    value: "https://github.com/rafaelmmurga/dipo-cloud-disco-service"

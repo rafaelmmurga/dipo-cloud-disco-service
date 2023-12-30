@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: disco-service-deployment-latest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: disco-service
+  template:
+    metadata:
+      labels:
+        app: disco-service
+    spec:
+      containers:
+        - name: disco-service-container
+          image: rafaelmmurga/disco-service:latest
+          ports:
+            - containerPort: 8080

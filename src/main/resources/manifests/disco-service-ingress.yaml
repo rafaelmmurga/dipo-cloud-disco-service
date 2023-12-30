@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: disco-service-ingress-dev
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: k8s.nuup.ninja
+      http:
+        paths:
+          - path: /disco-service
+            pathType: Prefix
+            backend:
+              service:
+                name: disco-service-service-dev
+                port:
+                  number: 80

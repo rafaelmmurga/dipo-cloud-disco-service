@@ -1,0 +1,6 @@
+clonar
+tkn task start git-clone
+listar
+tkn task start task-list-diretory
+maven
+tkn task start task-list-maven

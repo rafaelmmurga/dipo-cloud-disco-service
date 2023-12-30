@@ -1,0 +1,10 @@
+apiVersion: texton.dev/v1beta1
+kind: PersistentVolumeClaim
+metadata:
+  name: shared-workspace
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi    

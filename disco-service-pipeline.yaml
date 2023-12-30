@@ -1,0 +1,44 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: disco-service
+  namespace: user9
+spec:
+  claimRef:
+    name: shared-workspace
+    namespace: default
+  params:
+    - name: url
+      type: string
+  resources: []
+  workspaces:
+    - name: output
+  tasks:
+    - name: git-clone
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: $(params.url)
+      workspaces:
+        - name: output
+          workspace: output
+    - name: list-directory
+      runAfter:
+        - git-clone
+      taskRef:
+        name: list-directory
+      workspaces:
+        - name: directory
+          workspace: output
+    - name: maven
+      runAfter:
+        - list-directory
+      taskRef:
+        name: maven
+      workspaces:
+        - name: source
+          workspace: output
+        - name: maven-settings
+          workspace: output
+  finally: []
