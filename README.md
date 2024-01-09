@@ -99,6 +99,19 @@ EXPOSE 8080
 # Comando para ejecutar la aplicación al iniciar el contenedor
 CMD ["java", "-jar", "/app/disco-service.jar"]
 ```
+```
+$ docker build -t rafaelmmurga/disco-service:latest .
+$ docker run -p 8080-8080 rafaelmmurga/disco-service:latest 
+``` 
+
+## Kubernetes
+```
+$ kubectl apply -f src/main/resources/manifests/disco-service-deployment.yaml
+
+$ kubectl apply -f src/main/resources/manifests/disco-service-service.yaml
+
+$ kubectl apply -f src/main/resources/manifests/disco-service-ingress.yaml
+```
 
 ## Dependencias
 Configuración de MongoDB para el Microservicio
