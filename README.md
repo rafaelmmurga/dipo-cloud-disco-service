@@ -247,3 +247,5 @@ DELETE http://localhost:8080/api/artistas/1
 ```
 
 La respuesta debería ser una respuesta sin contenido (204 No Content).
+
+> cafaray: project validation
